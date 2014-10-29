@@ -1,48 +1,108 @@
-<div class="actions columns large-2 medium-3">
-	<h3><?= __('Actions') ?></h3>
-	<ul class="side-nav">
-		<li><?= $this->Html->link(__('New Task'), ['action' => 'add']) ?></li>
-	</ul>
+<div id='tabs'>
+    <ul>
+        <?php $count = 1 ?>
+        <?php foreach ($lists as $list): ?>
+        <li>
+            <a href="<?= '#' . 'tabs-' . $count ?>"><?= $list->name ?></a>
+        </li>
+        <?php $count++; ?>
+		<?php endforeach; ?>
+        <li>
+            <a href="#tabs-new-list">Add List +</a>
+        </li>
+    </ul>
+
+
+    <?php $count = 1 ?>
+    <?php foreach ($lists as $list): ?>
+
+    <div id='tabs-<?= $count ?>' class="tab">
+
+        <div class="new-task">
+            <?= $this->Form->create($task) ?>
+            <?= $this->Form->hidden('done', ['value'=>false])?>
+            <?= $this->Form->hidden('list_id', ['value'=>$list->id])?>
+
+            <div class="split-fields">
+                <div class="field">
+                    <?=  $this->Form->input('name', ['label' => false, 'placeholder'=>'Input New Task']); ?>
+                </div>
+                <div class="button">
+                    <?= $this->Form->button(__('Submit')) ?>
+                </div>
+            </div>
+            <?= $this->Form->end() ?>
+        </div>
+
+        <% unless list.tasks.empty? %>
+        <ul  class="tasks pending-tasks">
+            <% list.tasks.each do |task| %>
+
+				<% unless task.done %>
+					<%= simple_form_for(task, :url => list_task_url(list, task)) do |f| %>
+
+            <li>
+                <%= f.input :done ,   :input_html => { :class => 'box'  } , :label => false  %>
+					    <%= f.button :submit ,  :class => 'hidden'   %>
+					    <%= raw auto_link( h(task.name), :html => { :target => '_blank' }) %>
+                <p class="delete-task">
+                    <%= link_to 'X', list_task_url(list, task), :confirm => 'Are you sure?', :method => :delete %>
+                </p>
+            </li>
+
+            <% end %>
+				<% end %>
+			<% end %>
+        </ul>
+        <% end %>
+
+		<% unless list.done_tasks.empty? %>
+        <ul class="tasks finished-tasks">
+            <% list.done_tasks.each do |task| %>
+            <li class="finished">
+                <%= raw auto_link( h(task.name), :html => { :target => '_blank' }) %>
+                <p class="delete-task">
+                    <%= link_to 'X', list_task_url(list, task), :confirm => 'Are you sure?', :method => :delete %>
+                </p>
+            </li>
+            <% end %>
+        </ul>
+        <% end %>
+
+        <p class="delete-list">
+            <%= link_to 'Delete this list', list, :confirm => 'Are you sure?', :method => :delete %>
+        </p>
+    </div>
+    <?php $count++ ?>
+    <?php endforeach; ?>
+
+
+    <div id="tabs-new-list">
+        <h2>Add a New Task List</h2>
+        <%= render :partial => '/lists/form' %>
+    </div>
+
+
 </div>
-<div class="tasks index large-10 medium-9 columns">
-	<table cellpadding="0" cellspacing="0">
-	<thead>
-		<tr>
-			<th><?= $this->Paginator->sort('id') ?></th>
-			<th><?= $this->Paginator->sort('name') ?></th>
-			<th><?= $this->Paginator->sort('done') ?></th>
-			<th><?= $this->Paginator->sort('created_at') ?></th>
-			<th><?= $this->Paginator->sort('updated_at') ?></th>
-			<th><?= $this->Paginator->sort('list_id') ?></th>
-			<th class="actions"><?= __('Actions') ?></th>
-		</tr>
-	</thead>
-	<tbody>
-	<?php foreach ($tasks as $task): ?>
-		<tr>
-			<td><?= $this->Number->format($task->id) ?></td>
-			<td><?= h($task->name) ?></td>
-			<td><?= h($task->done) ?></td>
-			<td><?= h($task->created_at) ?></td>
-			<td><?= h($task->updated_at) ?></td>
-			<td><?= $this->Number->format($task->list_id) ?></td>
-			<td class="actions">
-				<?= $this->Html->link(__('View'), ['action' => 'view', $task->id]) ?>
-				<?= $this->Html->link(__('Edit'), ['action' => 'edit', $task->id]) ?>
-				<?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $task->id], ['confirm' => __('Are you sure you want to delete # {0}?', $task->id)]) ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
-	</table>
-	<div class="paginator">
-		<ul class="pagination">
-		<?php
-			echo $this->Paginator->prev('< ' . __('previous'));
-			echo $this->Paginator->numbers();
-			echo $this->Paginator->next(__('next') . ' >');
-		?>
-		</ul>
-		<p><?= $this->Paginator->counter() ?></p>
-	</div>
-</div>
+
+
+<% if listid = params[:list_id] %>
+    <% prevlist = List.find listid %>
+    <% tabindex = @lists.index(prevlist) %>
+<% end %>
+
+
+<script>
+    $('.box').click(function(event) {
+        $(this).parent().next().click();
+    });
+
+    $(function() {
+        var opts = {};
+        <% if params[:list_id] %>
+        opts.selected = <%= tabindex %>
+            <% end %>
+            $( "#tabs" ).tabs(opts);
+    });
+
+</script>

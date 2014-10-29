@@ -16,8 +16,12 @@ class TasksController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->set('tasks', $this->paginate($this->Tasks));
-	}
+        $this->loadModel('Lists');
+        $this->set('todo', $this->Tasks->find());
+        $this->set('task', $this->Tasks->newEntity($this->request->data));
+        $this->set('lists', $this->Lists->find());
+
+    }
 
 /**
  * View method
