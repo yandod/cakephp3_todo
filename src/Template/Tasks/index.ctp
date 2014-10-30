@@ -28,7 +28,7 @@
                     <?=  $this->Form->input('name', ['label' => false, 'placeholder'=>'Input New Task']); ?>
                 </div>
                 <div class="button">
-                    <?= $this->Form->button(__('Submit')) ?>
+                    <?= $this->Form->button(__('Add Task'), ['class' => 'button']) ?>
                 </div>
             </div>
             <?= $this->Form->end() ?>
@@ -86,12 +86,12 @@
 
 </div>
 
-
+<?php if (false): ?>
 <% if listid = params[:list_id] %>
     <% prevlist = List.find listid %>
     <% tabindex = @lists.index(prevlist) %>
 <% end %>
-
+<?php endif; ?>
 
 <script>
     $('.box').click(function(event) {
