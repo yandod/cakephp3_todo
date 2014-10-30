@@ -6,6 +6,8 @@
     <?= $this->Html->meta('icon') ?>
     <?= $this->Html->css('application.css') ?>
     <?= $this->Html->script('application.js') ?>
+    <?= $this->Html->script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js')?>
+    <?= $this->Html->script('jquery-ui-1.8.13.js') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>

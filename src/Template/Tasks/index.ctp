@@ -34,28 +34,29 @@
             <?= $this->Form->end() ?>
         </div>
 
-        <% unless list.tasks.empty? %>
+        <?php if (!empty($list->tasks)): ?>
         <ul  class="tasks pending-tasks">
-            <% list.tasks.each do |task| %>
+            <?php foreach ($list->tasks as $task): ?>
 
-				<% unless task.done %>
-					<%= simple_form_for(task, :url => list_task_url(list, task)) do |f| %>
+                <?php if (!$task->done): ?>
+                    <?= $this->Form->create($task) ?>
 
             <li>
-                <%= f.input :done ,   :input_html => { :class => 'box'  } , :label => false  %>
-					    <%= f.button :submit ,  :class => 'hidden'   %>
-					    <%= raw auto_link( h(task.name), :html => { :target => '_blank' }) %>
+                        <?= $this->Form->checkbox('done', ['class' => 'box', 'label' => false]); ?>
+                        <?= $this->Form->button(__('Submit'), ['class'=>'hidden']) ?>
+                        <?= $task->name; ?>
                 <p class="delete-task">
-                    <%= link_to 'X', list_task_url(list, task), :confirm => 'Are you sure?', :method => :delete %>
+                    <?= $this->Html->link('X', [], ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
                 </p>
             </li>
 
-            <% end %>
-				<% end %>
-			<% end %>
+                    <?= $this->Form->end() ?>
+				<?php endif; ?>
+			<?php endforeach; ?>
         </ul>
-        <% end %>
+        <?php endif; ?>
 
+        <?php if (false): ?>
 		<% unless list.done_tasks.empty? %>
         <ul class="tasks finished-tasks">
             <% list.done_tasks.each do |task| %>
@@ -67,10 +68,10 @@
             </li>
             <% end %>
         </ul>
-        <% end %>
+        <?php endif; ?>
 
         <p class="delete-list">
-            <%= link_to 'Delete this list', list, :confirm => 'Are you sure?', :method => :delete %>
+            <?= $this->Html->link('Delete this list', ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
         </p>
     </div>
     <?php $count++ ?>
@@ -99,9 +100,10 @@
 
     $(function() {
         var opts = {};
+        <?php if (false && $params['list_id']): ?>
         <% if params[:list_id] %>
         opts.selected = <%= tabindex %>
-            <% end %>
+         <?php endif; ?>
             $( "#tabs" ).tabs(opts);
     });
 

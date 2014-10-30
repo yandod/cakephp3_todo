@@ -2,6 +2,7 @@
 namespace App\Model\Entity;
 
 use Cake\ORM\Entity;
+use Cake\ORM\TableRegistry;
 
 /**
  * ListObject Entity.
@@ -20,4 +21,10 @@ class ListObject extends Entity {
 		'tasks' => true,
 	];
 
+    protected function _getTasks() {
+        $tasks = TableRegistry::get('Tasks');
+        return $tasks->find('all')
+            ->where(['list_id' => $this->id])
+            ->all();
+    }
 }
