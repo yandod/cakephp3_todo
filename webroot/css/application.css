@@ -5,14 +5,12 @@ ul, ol {margin:0; padding:0; list-style-position:inside;}
 h2 {font-size:18px;}
 
 #header {height:77px; background:#a00 url("/img/header.png") scroll repeat-x 0 0; position:relative; overflow:visible;}
-#header h1 {color:#FFF; position:absolute; left:100px; top:20px; font-size:18px;}
+#header h1 {color:#FFF; position:absolute; left:40px; top:20px; font-size:18px;}
 #header h1 span.intro {display:block; font-weight:bold; margin-bottom:4px; font-size:22px;}
 #header h1 span.intro span {font-weight:normal; font-size:.65em}
 #header p.sample {color:#fff; margin:0; padding:0; position:absolute; top:30px; right:30px;}
-#logo {height:81px; width:50px; background:url("/img/logo.png") scroll no-repeat 0 0; position:absolute; left:35px; top:10px;}
-#logo a {display:block; width:50px; height:80px; text-indent:-9000px;}
 #content { background:#f8f8f8 url("/img/clouds.png") scroll repeat-x 0 -5px; padding:50px 35px 0 35px;}
-#foot {padding:0 35px; color:#888;}
+#foot {padding:0 35px; color:#888; max-width:1200px;}
 
 #tabs {background:#fff; margin-top:20px; box-shadow: 0px 2px 5px #ccc; -moz-box-shadow: 0px 2px 5px #ccc; max-width:1200px;}
 #tabs div.new-task {overflow:auto;}
@@ -69,8 +67,8 @@ ul.pending-tasks div.boolean { display:inline; }
 
 p#alert {background:#C00; margin:0; padding:6px 10px; color:#FFF; border-radius:3px; -moz-border-radius:3px; -webkit-border-radius:3px; }
 
-.copyright {font-size:11px; line-height:1.3em; max-width:1200px;}
-.copyright p { width:300px; float:right;}
+.logo { width: 250px; height: 54px; float: left; padding-top: 15px; }
+.copyright { font-size:11px; line-height:1.3em; width:300px; float:right; }
 .copyright a {color:#369;}
 
 /* Overrides */
@@ -140,26 +138,26 @@ p#alert {background:#C00; margin:0; padding:6px 10px; color:#FFF; border-radius:
 .ui-widget { font-family: Verdana,Arial,sans-serif; font-size: 1.1em; }
 .ui-widget .ui-widget { font-size: 1em; }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; }
-.ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url(<%= asset_path 'ui-bg_flat_75_ffffff_40x100.png') 50% 50% repeat-x; color: #222222; }
+.ui-widget-content { border: 1px solid #aaaaaa; background: #ffffff url('/img/ui-bg_flat_75_ffffff_40x100.png') 50% 50% repeat-x; color: #222222; }
 .ui-widget-content a { color: #222222; }
-.ui-widget-header { border: 1px solid #aaaaaa; background: #cccccc url(<%= asset_path 'ui-bg_highlight-soft_75_cccccc_1x100.png') 50% 50% repeat-x; color: #222222; font-weight: bold; }
+.ui-widget-header { border: 1px solid #aaaaaa; background: #cccccc url('/img/ui-bg_highlight-soft_75_cccccc_1x100.png') 50% 50% repeat-x; color: #222222; font-weight: bold; }
 .ui-widget-header a { color: #222222; }
 
 /* Interaction states
 ----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #d3d3d3; background: #e6e6e6 url(<%= asset_path 'ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; font-weight: normal; color: #555555; }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #d3d3d3; background: #e6e6e6 url('/img/ui-bg_glass_75_e6e6e6_1x400.png') 50% 50% repeat-x; font-weight: normal; color: #555555; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #555555; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #999999; background: #dadada url(<%= asset_path 'ui-bg_glass_75_dadada_1x400.png') 50% 50% repeat-x; font-weight: normal; color: #212121; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #999999; background: #dadada url('/img/ui-bg_glass_75_dadada_1x400.png') 50% 50% repeat-x; font-weight: normal; color: #212121; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #212121; text-decoration: none; }
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #aaaaaa; background: #ffffff url(<%= asset_path 'ui-bg_glass_65_ffffff_1x400.png') 50% 50% repeat-x; font-weight: normal; color: #212121; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #aaaaaa; background: #ffffff url('/img/ui-bg_glass_65_ffffff_1x400.png') 50% 50% repeat-x; font-weight: normal; color: #212121; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #212121; text-decoration: none; }
 .ui-widget :active { outline: none; }
 
 /* Interaction Cues
 ----------------------------------*/
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fcefa1; background: #fbf9ee url(<%= asset_path 'ui-bg_glass_55_fbf9ee_1x400.png') 50% 50% repeat-x; color: #363636; }
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fcefa1; background: #fbf9ee url('/img/ui-bg_glass_55_fbf9ee_1x400.png') 50% 50% repeat-x; color: #363636; }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
-.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec url(<%= asset_path 'ui-bg_glass_95_fef1ec_1x400.png') 50% 50% repeat-x; color: #cd0a0a; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec url('/img/ui-bg_glass_95_fef1ec_1x400.png') 50% 50% repeat-x; color: #cd0a0a; }
 .ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #cd0a0a; }
 .ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a; }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
@@ -170,14 +168,14 @@ p#alert {background:#C00; margin:0; padding:6px 10px; color:#FFF; border-radius:
 ----------------------------------*/
 
 /* states and images */
-.ui-icon { width: 16px; height: 16px; background-image: url(<%= asset_path 'ui-icons_222222_256x240.png'); }
-.ui-widget-content .ui-icon {background-image: url(<%= asset_path 'ui-icons_222222_256x240.png'); }
-.ui-widget-header .ui-icon {background-image: url(<%= asset_path 'ui-icons_222222_256x240.png'); }
-.ui-state-default .ui-icon { background-image: url(<%= asset_path 'ui-icons_888888_256x240.png'); }
-.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(<%= asset_path 'ui-icons_454545_256x240.png'); }
-.ui-state-active .ui-icon {background-image: url(<%= asset_path 'ui-icons_454545_256x240.png'); }
-.ui-state-highlight .ui-icon {background-image: url(<%= asset_path 'ui-icons_2e83ff_256x240.png'); }
-.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(<%= asset_path 'ui-icons_cd0a0a_256x240.png'); }
+.ui-icon { width: 16px; height: 16px; background-image: url('/img/ui-icons_222222_256x240.png'); }
+.ui-widget-content .ui-icon {background-image: url('/img/ui-icons_222222_256x240.png'); }
+.ui-widget-header .ui-icon {background-image: url('/img/ui-icons_222222_256x240.png'); }
+.ui-state-default .ui-icon { background-image: url('/img/ui-icons_888888_256x240.png'); }
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url('/img/ui-icons_454545_256x240.png'); }
+.ui-state-active .ui-icon {background-image: url('/img/ui-icons_454545_256x240.png'); }
+.ui-state-highlight .ui-icon {background-image: url('/img/ui-icons_2e83ff_256x240.png'); }
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url('/img/ui-icons_cd0a0a_256x240.png'); }
 
 /* positioning */
 .ui-icon-carat-1-n { background-position: 0 0; }

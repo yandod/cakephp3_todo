@@ -19,7 +19,7 @@
     <div id='tabs-<?= $count ?>' class="tab">
 
         <div class="new-task">
-            <?= $this->Form->create($task, ['action' => 'add']) ?>
+            <?= $this->Form->create($new_task, ['action' => 'add']) ?>
             <?= $this->Form->hidden('done', ['value'=>false])?>
             <?= $this->Form->hidden('list_id', ['value'=>$list->id])?>
 
@@ -70,7 +70,7 @@
         <?php endif; ?>
 
         <p class="delete-list">
-            <?= $this->Html->link('Delete this list', ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
+            <?= $this->Html->link('Delete this list',['controller' => 'Lists', 'action' => 'delete', $list->id], ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
         </p>
     </div>
     <?php $count++ ?>
@@ -79,7 +79,7 @@
 
     <div id="tabs-new-list">
         <h2>Add a New Task List</h2>
-        <%= render :partial => '/lists/form' %>
+        <?= $this->element('Lists/form'); ?>
     </div>
 
 

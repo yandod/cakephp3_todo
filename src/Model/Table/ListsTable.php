@@ -40,10 +40,10 @@ class ListsTable extends Table {
 			->allowEmpty('id', 'create')
 			->allowEmpty('name')
 			->add('created_at', 'valid', ['rule' => 'datetime'])
-			->validatePresence('created_at', 'create')
+			//->validatePresence('created_at', 'create')
 			->notEmpty('created_at')
 			->add('updated_at', 'valid', ['rule' => 'datetime'])
-			->validatePresence('updated_at', 'create')
+			//->validatePresence('updated_at', 'create')
 			->notEmpty('updated_at');
 
 		return $validator;

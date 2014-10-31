@@ -14,9 +14,6 @@
 <body>
 <div id="all">
     <div id="header">
-        <div id="logo">
-            <a href="http://www.engineyard.com">Engine Yard</a>
-        </div>
         <h1><span class="intro">Getting Things Done</span> deployed on <span class="branding">Engine Yard Cloud</span></h1>
         <p class="sample">Sample Deployment Application</p>
     </div>
@@ -25,6 +22,9 @@
         <?= $this->fetch('content') ?>
     </div>
     <div id="foot">
+        <div id="logo">
+            <a href="http://www.engineyard.com"><img src="/img/ey-wordmark.png"></a>
+        </div>
         <div class="copyright">
             <p>
                 Running on Engine Yard: <a href="http://engineyard.com/products/appcloud">The Ruby Cloud</a> and <a href="http://cakephp.org/">CakePHP3</a><br>

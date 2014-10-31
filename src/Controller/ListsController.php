@@ -83,12 +83,12 @@ class ListsController extends AppController {
  */
 	public function delete($id = null) {
 		$list = $this->Lists->get($id);
-		$this->request->allowMethod('post', 'delete');
+		//$this->request->allowMethod('post', 'delete');
 		if ($this->Lists->delete($list)) {
 			$this->Flash->success('The list has been deleted.');
 		} else {
 			$this->Flash->error('The list could not be deleted. Please, try again.');
 		}
-		return $this->redirect(['action' => 'index']);
+		return $this->redirect(['controller' => 'tasks', 'action' => 'index']);
 	}
 }
