@@ -39,7 +39,7 @@
             <?php foreach ($list->tasks as $task): ?>
 
                 <?php if (!$task->done): ?>
-                    <?= $this->Form->create($task) ?>
+                    <?= $this->Form->create($task, ['action' => 'edit']) ?>
 
             <li>
                         <?= $this->Form->checkbox('done', ['class' => 'box', 'label' => false]); ?>
@@ -95,7 +95,7 @@
 
 <script>
     $('.box').click(function(event) {
-        $(this).parent().next().click();
+        $(this).next().click();
     });
 
     $(function() {
