@@ -46,7 +46,7 @@
                         <?= $this->Form->button(__('Submit'), ['class'=>'hidden']) ?>
                         <?= $task->name; ?>
                 <p class="delete-task">
-                    <?= $this->Html->link('X', [], ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
+                    <?= $this->Html->link('X', ['action' => 'delete', $task->id], ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
                 </p>
             </li>
 
@@ -56,17 +56,16 @@
         </ul>
         <?php endif; ?>
 
-        <?php if (false): ?>
-		<% unless list.done_tasks.empty? %>
+        <?php if (count($list->DoneTasks)): ?>
         <ul class="tasks finished-tasks">
-            <% list.done_tasks.each do |task| %>
+            <?php foreach ($list->DoneTasks as $task): ?>
             <li class="finished">
-                <%= raw auto_link( h(task.name), :html => { :target => '_blank' }) %>
+                <?= h($task->name) ?>
                 <p class="delete-task">
-                    <%= link_to 'X', list_task_url(list, task), :confirm => 'Are you sure?', :method => :delete %>
+                    <?= $this->Html->link('X', ['action' => 'delete', $task->id], ['confirm' => 'Are you sure?', 'method' => 'delete']); ?>
                 </p>
             </li>
-            <% end %>
+            <?php endforeach; ?>
         </ul>
         <?php endif; ?>
 

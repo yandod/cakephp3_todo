@@ -46,7 +46,7 @@ class TasksController extends AppController {
 		$task = $this->Tasks->newEntity($this->request->data);
 		if ($this->request->is('post')) {
 			if ($this->Tasks->save($task)) {
-				$this->Flash->success('The task has been saved.');
+				//$this->Flash->success('The task has been saved.');
 				return $this->redirect(['action' => 'index']);
 			} else {
 				$this->Flash->error('The task could not be saved. Please, try again.');
@@ -69,7 +69,7 @@ class TasksController extends AppController {
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$task = $this->Tasks->patchEntity($task, $this->request->data);
 			if ($this->Tasks->save($task)) {
-				$this->Flash->success('The task has been saved.');
+				//$this->Flash->success('The task has been saved.');
 				return $this->redirect(['action' => 'index']);
 			} else {
 				$this->Flash->error('The task could not be saved. Please, try again.');
@@ -87,7 +87,7 @@ class TasksController extends AppController {
  */
 	public function delete($id = null) {
 		$task = $this->Tasks->get($id);
-		$this->request->allowMethod('post', 'delete');
+		//$this->request->allowMethod('post', 'delete');
 		if ($this->Tasks->delete($task)) {
 			$this->Flash->success('The task has been deleted.');
 		} else {

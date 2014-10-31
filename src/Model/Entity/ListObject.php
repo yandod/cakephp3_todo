@@ -27,4 +27,12 @@ class ListObject extends Entity {
             ->where(['list_id' => $this->id])
             ->all();
     }
+
+    protected function _getDoneTasks() {
+        $tasks = TableRegistry::get('Tasks');
+        return $tasks->find('all')
+            ->where(['list_id' => $this->id, 'done' => true])
+            ->all();
+    }
+
 }
