@@ -40,11 +40,11 @@ class TasksTable extends Table {
 			->add('done', 'valid', ['rule' => 'boolean'])
 			->allowEmpty('done')
 			->add('created_at', 'valid', ['rule' => 'datetime'])
-			->validatePresence('created_at', 'create')
-			->notEmpty('created_at')
+			//->validatePresence('created_at', 'create')
+			//->notEmpty('created_at')
 			->add('updated_at', 'valid', ['rule' => 'datetime'])
-			->validatePresence('updated_at', 'create')
-			->notEmpty('updated_at')
+			//->validatePresence('updated_at', 'create')
+			//->notEmpty('updated_at')
 			->add('list_id', 'valid', ['rule' => 'numeric'])
 			->allowEmpty('list_id');
 

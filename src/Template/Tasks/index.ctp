@@ -19,7 +19,7 @@
     <div id='tabs-<?= $count ?>' class="tab">
 
         <div class="new-task">
-            <?= $this->Form->create($task) ?>
+            <?= $this->Form->create($task, ['action' => 'add']) ?>
             <?= $this->Form->hidden('done', ['value'=>false])?>
             <?= $this->Form->hidden('list_id', ['value'=>$list->id])?>
 
