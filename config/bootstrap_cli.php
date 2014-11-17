@@ -22,3 +22,14 @@ use Cake\Core\Configure;
 // Set logs to different files so they don't have permission conflicts.
 Configure::write('Log.debug.file', 'cli-debug');
 Configure::write('Log.error.file', 'cli-error');
+
+use Symfony\Component\Yaml\Yaml;
+$ey_config = '../../shared/config/database.yml';
+if (file_exists($ey_config)) {
+    $yaml = Yaml::parse($ey_config);
+    $config = $yaml[getenv('PHP_ENV')];
+    Configure::write('Datasources.default.host', $config['host']);
+    Configure::write('Datasources.default.database', $config['database']);
+    Configure::write('Datasources.default.username', $config['username']);
+    Configure::write('Datasources.default.password', $config['password']);
+}

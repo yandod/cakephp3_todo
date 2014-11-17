@@ -131,12 +131,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cakephp.git",
-                "reference": "ca7b0a77ecd309b3ba1457363debbf8fd394eb08"
+                "reference": "91c4cb33ddea8377e5f39e753adad08035c4e04d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/ca7b0a77ecd309b3ba1457363debbf8fd394eb08",
-                "reference": "ca7b0a77ecd309b3ba1457363debbf8fd394eb08",
+                "url": "https://api.github.com/repos/cakephp/cakephp/zipball/91c4cb33ddea8377e5f39e753adad08035c4e04d",
+                "reference": "91c4cb33ddea8377e5f39e753adad08035c4e04d",
                 "shasum": ""
             },
             "require": {
@@ -150,14 +150,17 @@
                 "psr/log": "1.0"
             },
             "replace": {
+                "cakephp/cache": "self.version",
                 "cakephp/collection": "self.version",
                 "cakephp/core": "self.version",
                 "cakephp/datasource": "self.version",
                 "cakephp/event": "self.version",
+                "cakephp/log": "self.version",
                 "cakephp/utility": "self.version",
                 "cakephp/validation": "self.version"
             },
             "require-dev": {
+                "cakephp/cakephp-codesniffer": "*",
                 "phpunit/phpunit": "*"
             },
             "type": "library",
@@ -185,7 +188,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-09-29 03:30:59"
+            "time": "2014-11-17 03:35:29"
         },
         {
             "name": "cakephp/debug_kit",
