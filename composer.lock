@@ -196,12 +196,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/debug_kit.git",
-                "reference": "2ca2c902537d6a958b8e04825831b485e5fc4d2c"
+                "reference": "30717420982d57cb85309735fe1fd21a374afb5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/2ca2c902537d6a958b8e04825831b485e5fc4d2c",
-                "reference": "2ca2c902537d6a958b8e04825831b485e5fc4d2c",
+                "url": "https://api.github.com/repos/cakephp/debug_kit/zipball/30717420982d57cb85309735fe1fd21a374afb5d",
+                "reference": "30717420982d57cb85309735fe1fd21a374afb5d",
                 "shasum": ""
             },
             "require": {
@@ -245,7 +245,7 @@
                 "debug",
                 "kit"
             ],
-            "time": "2014-09-29 02:20:47"
+            "time": "2014-11-16 01:24:33"
         },
         {
             "name": "cakephp/migrations",
